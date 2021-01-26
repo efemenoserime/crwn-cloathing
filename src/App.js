@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import { Route, Switch } from "react-router-dom";
 
 import HomePage from "./pages/HomePage/Homepage.component";
@@ -8,6 +7,8 @@ import Header from "./components/header/header.component";
 import SignPage from "./pages/SignPage/SignPage.component";
 
 import { auth } from "./firebase/firebase.utils";
+
+import "./App.css";
 
 class App extends React.Component {
 	constructor() {
@@ -28,14 +29,14 @@ class App extends React.Component {
 		});
 	}
 
-	componentWillMount() {
+	componentWillUnmount() {
 		this.unsubsribeFromAuth();
 	}
 
 	render() {
 		return (
 			<div>
-				<Header />
+				<Header currentUser={this.state.currentUser} />
 				<Switch>
 					<Route exact path="/" component={HomePage} />
 					<Route path="/shop" component={ShopPage} />
