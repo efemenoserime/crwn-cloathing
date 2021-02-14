@@ -2,7 +2,7 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
 
-import config from "./firebase.config.json";
+import config from "./firebase.config";
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
 	if (!userAuth) return;
@@ -27,6 +27,8 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 	}
 	return userRef;
 };
+
+console.log(config);
 
 firebase.initializeApp(config);
 
