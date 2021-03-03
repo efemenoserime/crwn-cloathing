@@ -5,7 +5,7 @@ import CustomButton from "../custom-button/custom-button.component";
 
 import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
 
-import "./sign-in.styles.scss";
+import { SigninContainer, SigninButtons, SigninTitle } from "./sign-in.styles";
 
 const SignIn = () => {
 	const [credentials, setCredentials] = useState({
@@ -33,8 +33,8 @@ const SignIn = () => {
 	};
 
 	return (
-		<div className="sign-in">
-			<h2>I already have an account</h2>
+		<SigninContainer>
+			<SigninTitle>I already have an account</SigninTitle>
 			<span>Sign in with your mail and password</span>
 			<form>
 				<FormInput
@@ -53,7 +53,7 @@ const SignIn = () => {
 					required
 					onChange={handleChange}
 				/>
-				<div className="buttons">
+				<SigninButtons>
 					<CustomButton onClick={handleSubmit}>Sign In</CustomButton>
 					<CustomButton
 						onClick={(e) => {
@@ -64,9 +64,9 @@ const SignIn = () => {
 					>
 						Sign In with Google
 					</CustomButton>
-				</div>
+				</SigninButtons>
 			</form>
-		</div>
+		</SigninContainer>
 	);
 };
 
